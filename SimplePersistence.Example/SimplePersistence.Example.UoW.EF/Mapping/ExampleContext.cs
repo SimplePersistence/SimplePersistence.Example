@@ -29,7 +29,7 @@ namespace SimplePersistence.Example.UoW.EF.Mapping
 {
     public class ExampleContext : DbContext
     {
-        public ExampleContext() : this("name=Example")
+        public ExampleContext() : this("name=SimplePersistenceExample")
         {
 
         }
@@ -57,7 +57,7 @@ namespace SimplePersistence.Example.UoW.EF.Mapping
             modelBuilder.Entity<Models.Logging.Level>(cfg =>
             {
                 cfg.HasKey(e => e.Id)
-                    .Property(e => e.Id).HasMaxLength(128);
+                    .Property(e => e.Id).HasMaxLength(8);
                 cfg.Property(e => e.Description).IsRequired().HasMaxLength(512);
 
                 cfg.MapCreatedMeta().MapUpdatedMeta().MapDeletedMeta().MapByteArrayVersion();
