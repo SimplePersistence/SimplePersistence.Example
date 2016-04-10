@@ -65,8 +65,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExampleUnitOfWork.cs" />
     <Compile Include="Mapping\ExampleContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Logging\ApplicationRepository.cs" />
+    <Compile Include="Repository\Logging\LevelRepository.cs" />
+    <Compile Include="Repository\Logging\LogRepository.cs" />
+    <Compile Include="WorkArea\LoggingWorkArea.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
