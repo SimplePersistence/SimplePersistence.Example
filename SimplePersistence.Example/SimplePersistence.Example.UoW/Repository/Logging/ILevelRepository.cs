@@ -27,8 +27,10 @@ using SimplePersistence.UoW;
 
 namespace SimplePersistence.Example.UoW.Repository.Logging
 {
-    public interface ILevelRepository : IQueryableRepository<Level, string>
+    public interface ILevelRepository : 
+        IRepository<Level, string>
+        //  IQueryableRepository<Level, string>  // if you need access to the IQueryable
     {
-        
+
     }
 }

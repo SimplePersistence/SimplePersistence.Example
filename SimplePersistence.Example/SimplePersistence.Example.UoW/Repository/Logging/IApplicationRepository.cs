@@ -27,7 +27,9 @@ using SimplePersistence.UoW;
 
 namespace SimplePersistence.Example.UoW.Repository.Logging
 {
-    public interface IApplicationRepository : IQueryableRepository<Application, string>
+    public interface IApplicationRepository : 
+        IRepository<Application, string>
+        //  IQueryableRepository<Application, string>  // if you need access to the IQueryable
     {
 
     }

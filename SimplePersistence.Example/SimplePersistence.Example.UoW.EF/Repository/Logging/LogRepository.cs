@@ -24,6 +24,8 @@
 
 using System.Data.Entity;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using SimplePersistence.Example.Models.Logging;
 using SimplePersistence.Example.UoW.Repository.Logging;
 using SimplePersistence.UoW.EF;
@@ -40,6 +42,22 @@ namespace SimplePersistence.Example.UoW.EF.Repository.Logging
         public override IQueryable<Log> QueryById(long id)
         {
             return Query().Where(e => e.Id == id);
+        }
+
+        public IQueryable<Log> QueryFilterByLevelWithPagination(string level, int skip = 0, int take = 50)
+        {
+            return Query().Where(e => e.Level.Id == level).Skip(skip).Take(take);
+        }
+
+        public Log[] FilterByLevelWithPagination(string level, int skip = 0, int take = 50)
+        {
+            return QueryFilterByLevelWithPagination(level, skip, take).ToArray();
+        }
+
+        public async Task<Log[]> FilterByLevelWithPaginationAsync(
+            string level, int skip = 0, int take = 50, CancellationToken ct = new CancellationToken())
+        {
+            return await QueryFilterByLevelWithPagination(level, skip, take).ToArrayAsync(ct);
         }
     }
 }

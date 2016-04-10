@@ -22,13 +22,23 @@
 // // SOFTWARE.
 #endregion
 
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using SimplePersistence.Example.Models.Logging;
 using SimplePersistence.UoW;
 
 namespace SimplePersistence.Example.UoW.Repository.Logging
 {
-    public interface ILogRepository : IQueryableRepository<Log, long>
+    public interface ILogRepository : 
+        IRepository<Log, long> 
+        //IQueryableRepository<Log, long>  // if you need access to the IQueryable
     {
-        
+        IQueryable<Log> QueryFilterByLevelWithPagination(string level, int skip = 0, int take = 50);
+
+        Log[] FilterByLevelWithPagination(string level, int skip = 0, int take = 50);
+
+        Task<Log[]> FilterByLevelWithPaginationAsync(
+            string level, int skip = 0, int take = 50, CancellationToken ct = default(CancellationToken));
     }
 }

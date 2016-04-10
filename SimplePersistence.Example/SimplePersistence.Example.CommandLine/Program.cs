@@ -89,10 +89,9 @@ namespace SimplePersistence.Example.CommandLine
         {
             Logger.Info("Running tests");
 
-            var logs = _factory.GetAndReleaseAfterExecuteAndCommit<IUnitOfWorkFactory, IExampleUnitOfWork, Log[]>(uow =>
-            {
-                return uow.Logging.Logs.Query().OrderByDescending(e => e.Id).Take(50).ToArray();
-            });
+            var logs =
+                _factory.GetAndReleaseAfterExecuteAndCommit<IUnitOfWorkFactory, IExampleUnitOfWork, Log[]>(
+                    uow => uow.Logging.Logs.FilterByLevelWithPagination(Level.Info, 5, 10));
         }
     }
 }
