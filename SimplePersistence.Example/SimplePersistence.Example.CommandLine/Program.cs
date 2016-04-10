@@ -23,13 +23,22 @@
 #endregion
 
 using System;
+using System.Reflection;
 using NLog;
 
 namespace SimplePersistence.Example.CommandLine
 {
     public class Program
     {
-        private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
+        private static readonly ILogger Logger;
+
+        static Program()
+        {
+            GlobalDiagnosticsContext.Set(
+                "assemblyVersion",
+                Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            Logger = LogManager.GetCurrentClassLogger();
+        }
 
         public static void Main(string[] args)
         {
