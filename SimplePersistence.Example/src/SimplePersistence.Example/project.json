@@ -15,14 +15,14 @@
   "frameworks": {
     "dnxcore5": {
       "dependencies": {
-        "System.Runtime": "4.0.0",
-        "System.Runtime.InteropServices": "4.0.0"
+        "System.Runtime": "4.0.20",
+        "System.Runtime.InteropServices": "4.0.20"
       }
     },
     "dotnet": {
       "dependencies": {
-        "System.Runtime": "4.0.0",
-        "System.Runtime.InteropServices": "4.0.0"
+        "System.Runtime": "4.0.20",
+        "System.Runtime.InteropServices": "4.0.20"
       }
     },
     "net45": {
