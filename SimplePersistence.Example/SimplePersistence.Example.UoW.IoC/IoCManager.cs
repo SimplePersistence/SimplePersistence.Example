@@ -24,13 +24,14 @@
 
 using System;
 using SimpleInjector;
+using SimplePersistence.UoW;
 
 namespace SimplePersistence.Example.UoW.IoC
 {
     public static class IoCManager
     {
         public static Container RegisterUnitOfWorkDependencies(
-            Container container, UoWImplementationOption versionOption, string connectionString)
+            this Container container, UoWImplementationOption versionOption, string connectionString)
         {
             if (container == null) throw new ArgumentNullException(nameof(container));
             if (connectionString == null) throw new ArgumentNullException(nameof(connectionString));
@@ -44,7 +45,7 @@ namespace SimplePersistence.Example.UoW.IoC
                 default:
                     throw new ArgumentOutOfRangeException(nameof(versionOption), versionOption, null);
             }
-            container.Register(() => new UnitOfWorkFactory(container));
+            container.Register<IUnitOfWorkFactory>(() => new UnitOfWorkFactory(container), Lifestyle.Singleton);
 
             return container;
         }

@@ -45,6 +45,10 @@
       <HintPath>..\packages\NLog.4.2.3\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SimpleInjector, Version=3.1.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.3.1.2\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SimplePersistence.Model, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SimplePersistence.Model.3.1.0\lib\net45\SimplePersistence.Model.dll</HintPath>
       <Private>True</Private>
@@ -53,12 +57,9 @@
       <HintPath>..\packages\SimplePersistence.UoW.3.1.0\lib\net45\SimplePersistence.UoW.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimplePersistence.UoW.EF, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimplePersistence.UoW.EF.3.0.0\lib\net45\SimplePersistence.UoW.EF.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -80,6 +81,20 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimplePersistence.Example.Models\SimplePersistence.Example.Models.csproj">
+      <Project>{3d942e24-0b65-4d8e-837e-a6c3ee9e2d7c}</Project>
+      <Name>SimplePersistence.Example.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimplePersistence.Example.UoW.IoC\SimplePersistence.Example.UoW.IoC.csproj">
+      <Project>{13169ebd-102a-41fb-b1e2-bec33a1f0b90}</Project>
+      <Name>SimplePersistence.Example.UoW.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimplePersistence.Example.UoW\SimplePersistence.Example.UoW.csproj">
+      <Project>{c2dd7256-2ce7-4ba8-b844-122957c6405c}</Project>
+      <Name>SimplePersistence.Example.UoW</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -23,14 +23,25 @@
 #endregion
 
 using System;
+using System.Configuration;
+using System.Linq;
 using System.Reflection;
 using NLog;
+using SimpleInjector;
+using SimplePersistence.Example.Models.Logging;
+using SimplePersistence.Example.UoW;
+using SimplePersistence.Example.UoW.IoC;
+using SimplePersistence.UoW;
+using SimplePersistence.UoW.Helper;
 
 namespace SimplePersistence.Example.CommandLine
 {
     public class Program
     {
         private static readonly ILogger Logger;
+        private readonly IUnitOfWorkFactory _factory;
+
+        #region Statics
 
         static Program()
         {
@@ -45,17 +56,43 @@ namespace SimplePersistence.Example.CommandLine
             try
             {
                 Logger.Info("Application started...");
+
+                using (var container = new Container()
+                    .RegisterUnitOfWorkDependencies(
+                        UoWImplementationOption.EntityFramework6,
+                        ConfigurationManager.ConnectionStrings["SimplePersistenceExample"].ConnectionString))
+                {
+                    container.Register<Program>();
+
+                    container.GetInstance<Program>().Run();
+                }
             }
             catch (Exception e)
             {
                 Logger.Fatal(e, "Application terminated with an unexpected error");
-                throw;
             }
             finally
             {
                 Logger.Info("Application terminated. Press <enter> to exit...");
                 Console.ReadLine();
             }
+        }
+
+        #endregion
+
+        public Program(IUnitOfWorkFactory factory)
+        {
+            _factory = factory;
+        }
+
+        public void Run()
+        {
+            Logger.Info("Running tests");
+
+            var logs = _factory.GetAndReleaseAfterExecuteAndCommit<IUnitOfWorkFactory, IExampleUnitOfWork, Log[]>(uow =>
+            {
+                return uow.Logging.Logs.Query().OrderByDescending(e => e.Id).Take(50).ToArray();
+            });
         }
     }
 }
