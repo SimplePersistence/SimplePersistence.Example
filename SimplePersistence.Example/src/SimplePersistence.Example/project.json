@@ -1,0 +1,32 @@
+﻿{
+  "version": "1.0.0",
+  "title": "SimplePersistence.Example",
+  "summary": "Example projects for Simple Persistence",
+  "description": "Example projects and applications using Simple Persistence libraries",
+  "authors": [ "João Simões" ],
+  "tags": [ "Simple Persistence", "Examples" ],
+  "projectUrl": "https://github.com/SimplePersistence/SimplePersistence.Example",
+  "licenseUrl": "https://github.com/SimplePersistence/SimplePersistence.Example/blob/master/LICENSE",
+  "iconUrl": "https://avatars3.githubusercontent.com/u/17026510",
+  "language": "en-US",
+  "copyright": "Copyright © 2016 SimplePersistence",
+  "releaseNotes": "",
+
+  "frameworks": {
+    "dnxcore5": {
+      "dependencies": {
+        "System.Runtime": "4.0.0",
+        "System.Runtime.InteropServices": "4.0.0"
+      }
+    },
+    "dotnet": {
+      "dependencies": {
+        "System.Runtime": "4.0.0",
+        "System.Runtime.InteropServices": "4.0.0"
+      }
+    },
+    "net45": {
+
+    }
+  }
+}
