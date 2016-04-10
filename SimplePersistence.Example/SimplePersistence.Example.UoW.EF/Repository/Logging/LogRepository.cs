@@ -46,7 +46,7 @@ namespace SimplePersistence.Example.UoW.EF.Repository.Logging
 
         public IQueryable<Log> QueryFilterByLevelWithPagination(string level, int skip = 0, int take = 50)
         {
-            return Query().Where(e => e.Level.Id == level).Skip(skip).Take(take);
+            return Query().Where(e => e.Level.Id == level).OrderByDescending(e => e.Id).Skip(skip).Take(take);
         }
 
         public Log[] FilterByLevelWithPagination(string level, int skip = 0, int take = 50)
