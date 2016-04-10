@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplePersistence.Example.U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplePersistence.Example.UoW.EF", "SimplePersistence.Example.UoW.EF\SimplePersistence.Example.UoW.EF.csproj", "{FDC7C32A-06B7-4090-971E-8C67F3F358E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplePersistence.Example.CommandLine", "SimplePersistence.Example.CommandLine\SimplePersistence.Example.CommandLine.csproj", "{29068A11-3C61-4F54-B801-BCA2DE6D1058}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{FDC7C32A-06B7-4090-971E-8C67F3F358E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDC7C32A-06B7-4090-971E-8C67F3F358E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDC7C32A-06B7-4090-971E-8C67F3F358E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29068A11-3C61-4F54-B801-BCA2DE6D1058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29068A11-3C61-4F54-B801-BCA2DE6D1058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29068A11-3C61-4F54-B801-BCA2DE6D1058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29068A11-3C61-4F54-B801-BCA2DE6D1058}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,5 +55,6 @@ Global
 		{3D942E24-0B65-4D8E-837E-A6C3EE9E2D7C} = {CD9F2D92-D5BC-470E-8B55-C946C5D3085D}
 		{C2DD7256-2CE7-4BA8-B844-122957C6405C} = {CD9F2D92-D5BC-470E-8B55-C946C5D3085D}
 		{FDC7C32A-06B7-4090-971E-8C67F3F358E5} = {CD9F2D92-D5BC-470E-8B55-C946C5D3085D}
+		{29068A11-3C61-4F54-B801-BCA2DE6D1058} = {CD9F2D92-D5BC-470E-8B55-C946C5D3085D}
 	EndGlobalSection
 EndGlobal
