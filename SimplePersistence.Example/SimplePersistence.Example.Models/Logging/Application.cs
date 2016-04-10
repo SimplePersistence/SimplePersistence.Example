@@ -29,6 +29,8 @@ namespace SimplePersistence.Example.Models.Logging
 {
     public class Application : EntityWithAllMetaAndVersionAsByteArray<string>
     {
+        public const string CommandLine = "SimplePersistence.Example.CommandLine";
+
         private ICollection<Log> _logs;
 
         public virtual string Description { get; set; }

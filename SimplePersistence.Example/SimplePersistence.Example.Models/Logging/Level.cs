@@ -29,6 +29,12 @@ namespace SimplePersistence.Example.Models.Logging
 {
     public class Level : EntityWithAllMetaAndVersionAsByteArray<string>
     {
+        public const string Trace = "TRACE";
+        public const string Debug = "DEBUG";
+        public const string Info = "INFO";
+        public const string Error = "ERROR";
+        public const string Fatal = "FATAL";
+
         private ICollection<Log> _logs;
 
         public virtual string Description { get; set; }
